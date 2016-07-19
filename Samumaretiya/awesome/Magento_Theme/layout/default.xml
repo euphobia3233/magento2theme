@@ -34,7 +34,16 @@
             </block> -->
            <!-- refenceBlock name="top.search" remove="true"/>  -->
         </referenceContainer>
-        <move element="top.search" destination="page.top" after="catalog.topnav" />
+        <referenceContainer name="page.top">
+            <container>
+                <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600"/>
+                <container name="top.container" as="topContainer" label="After Page Header Top" htmlTag="div" htmlClass="top-container"/>
+                <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+            </container>
+        </referenceContainer>
+        <!-- <move element="top.search" destination="page.top" after="catalog.topnav" /> -->
+        <!-- <move element="top.links" destination="page.top" before="-"/> -->
+        <referenceBlock name="breadcrumbs" remove="true"/>
         <referenceBlock name="report.bugs" remove="true"/>
     </body>
 </page>
